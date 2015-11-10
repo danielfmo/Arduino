@@ -187,6 +187,12 @@
 #define MY_INCLUSION_MODE_DURATION 60
 #endif
 
+#if defined(MY_INCLUSION_BUTTON_EXTERNAL_PULLUP)
+#define MY_INCLUSION_BUTTON_PRESSED HIGH
+#else
+#define MY_INCLUSION_BUTTON_PRESSED LOW
+#endif
+
 /**********************************
 *  Message Signing Settings
 ***********************************/
@@ -211,7 +217,7 @@
 // Note that a node can still transmit a non-salted message (i.e. have white listing disabled)
 // to a node that has white listing enabled (assuming the receiver does not have a matching entry
 // for the sender in it's white list)
-//#define MY_SIGNING_NODE_WHITELIST {{.nodeId = GATEWAY_ADDRESS,.serial = {0x09,0x08,0x07,0x06,0x05,0x04,0x03,0x02,0x01}}}
+//#define MY_SIGNING_NODE_WHITELISTING {{.nodeId = GATEWAY_ADDRESS,.serial = {0x09,0x08,0x07,0x06,0x05,0x04,0x03,0x02,0x01}}}
 
 // Atsha204 default pin setting
 #ifndef MY_SIGNING_ATSHA204_PIN
